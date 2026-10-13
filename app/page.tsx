@@ -288,10 +288,10 @@ export default function Home() {
 
               <div className="mt-5 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-xs text-white/70 font-medium">Overall Progress</p>
+                  <p className="text-sm text-white/70 font-medium">Overall Progress</p>
                   <div className="mt-2 flex items-baseline justify-between">
                     <span className={`${headingFont.className} text-xl font-bold text-white`}>68%</span>
-                    <span className="text-[10px] text-[#7FD6CC]">On Track</span>
+                    <span className="text-sm text-[#7FD6CC]">On Track</span>
                   </div>
                   <div className="mt-3 h-2 w-full rounded-full bg-white/10">
                     <div className="fyp-bar h-2 w-3/4 rounded-full bg-[#7FD6CC]" />
@@ -299,7 +299,7 @@ export default function Home() {
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-xs text-white/70 font-medium">Weekly Milestones</p>
+                  <p className="text-sm text-white/70 font-medium">Weekly Milestones</p>
                   <div className="mt-3 flex items-end gap-2">
                     <div className="h-8 w-3 rounded-full bg-white/20" title="Week 1" />
                     <div className="h-12 w-3 rounded-full bg-white/30" title="Week 2" />
@@ -312,8 +312,8 @@ export default function Home() {
 
               <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4">
                 <div className="flex items-center justify-between">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-white/85">Active Tasks & Feedback</p>
-                  <span className="text-[11px] text-[#7FD6CC]">1 New Note</span>
+                  <p className="text-sm font-semibold uppercase tracking-wider text-white/85">Active Tasks & Feedback</p>
+                  <span className="text-sm text-[#7FD6CC]">1 New Note</span>
                 </div>
 
                 <div className="mt-3 space-y-2.5">
@@ -327,15 +327,15 @@ export default function Home() {
                       className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.04] p-2.5 text-xs"
                     >
                       <div className="flex items-center gap-2.5">
-                        <div className="h-5 w-5 rounded-md bg-[#7FD6CC]/20 flex items-center justify-center text-[#7FD6CC] font-bold text-[10px]">
-                          ✓
+                       <div className="h-6 w-6 rounded-md bg-[#7FD6CC]/20 flex items-center justify-center text-[#7FD6CC] font-bold text-sm">
+                         ✓
                         </div>
                         <div>
                           <p className="font-medium text-white">{task.title}</p>
-                          <p className="text-[10px] text-white/60">{task.tag}</p>
+                          <p className="text-sm text-white/60">{task.tag}</p>
                         </div>
                       </div>
-                      <span className="rounded bg-white/10 px-2 py-0.5 text-[10px] text-[#7FD6CC] border border-white/10">
+                      <span className="rounded bg-white/10 px-2 py-1 text-sm text-[#7FD6CC] border border-white/10">
                         {task.status}
                       </span>
                     </div>
@@ -505,7 +505,7 @@ export default function Home() {
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.16em]  text-white">
+                  <p className="text-sm font-semibold uppercase tracking-[0.16em] ">
                     Supervisor
                   </p>
 
