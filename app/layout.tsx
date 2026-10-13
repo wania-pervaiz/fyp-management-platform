@@ -1,23 +1,20 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "FYP Management Platform",
-  description: "A platform for managing university final-year projects.",
+  description:
+    "Manage your final-year project: teams, tasks, milestones, and supervisor feedback in one place.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body>
-        <Navbar />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

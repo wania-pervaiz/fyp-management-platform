@@ -1,5 +1,19 @@
-import AIChat from "@/components/AIChat";
+"use client";
 
-export default function AIAssistantPage() {
-  return <AIChat />;
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { getCurrentUser } from "@/lib/project-storage";
+
+export default function AIAssistantRedirect() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace(
+      getCurrentUser()?.role === "supervisor"
+        ? "/supervisor/ai-assistant"
+        : "/project/ai-assistant",
+    );
+  }, [router]);
+
+  return null;
 }
