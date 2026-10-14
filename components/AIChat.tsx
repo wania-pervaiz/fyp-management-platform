@@ -179,14 +179,24 @@ export default function AIChat({ role = "student" }: { role?: ChatRole }) {
             )}
           </>
         )}
-         {error && (
-          <div role="alert" className="rounded-2xl border border-red-400/40 bg-red-400/10 p-4 text-sm text-red-200">
-            The AI Assistant is unavailable right now.{" "}
-            <button type="button" onClick={() => regenerate()} className="font-bold underline">
-              Try again
-            </button>
-          </div>
-        )}
+        
+{error && (
+  <div
+    role="alert"
+    className="rounded-2xl border border-red-400/40 bg-red-400/10 p-4 text-sm text-red-200"
+  >
+    <p>The AI Assistant could not complete your request. Please try again.</p>
+
+    <button
+      type="button"
+      onClick={() => regenerate()}
+      className="mt-2 font-bold underline focus:outline-none focus:ring-2 focus:ring-[#7FD6CC]"
+    >
+      Try again
+    </button>
+  </div>
+)}
+
         <div ref={bottomRef} />
       </div>
 

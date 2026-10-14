@@ -158,31 +158,32 @@ export default function ProjectManagementPage() {
   const [joinCode, setJoinCode] = useState("");
   const [redirecting, setRedirecting] = useState(false);
 
-  useEffect(() => {
-    seedSampleData();       
-    const savedProjects = getProjects();
 
-    // Merge built-in demo projects with saved user projects
-    const allProjectsMap = new Map<string, Project>();
-    BUILT_IN_PROJECTS.forEach((p) => allProjectsMap.set(p.id, p));
-    savedProjects.forEach((p) => allProjectsMap.set(p.id, p));
+useEffect(() => {
+  seedSampleData();
 
-    const mergedProjects = Array.from(allProjectsMap.values());
-    saveProjects(mergedProjects);
+  const savedProjects = getProjects();
 
-    setProjects(mergedProjects);
-    setTasks(getTasks());
+  // Merge built-in demo projects with saved user projects
+  const allProjectsMap = new Map<string, Project>();
 
-    const params = new URLSearchParams(window.location.search);
+  BUILT_IN_PROJECTS.forEach((p) => allProjectsMap.set(p.id, p));
+  savedProjects.forEach((p) => allProjectsMap.set(p.id, p));
 
-    if (params.get("view") === "create") {
-      resetProjectForm();
-      setView("create");
-    } else if (params.get("mode") === "join") {
-      setView("join");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const mergedProjects = Array.from(allProjectsMap.values());
+  saveProjects(mergedProjects);
+
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.get("view") === "create") {
+    resetProjectForm();
+    setView("create");
+  } else if (params.get("mode") === "join") {
+    setView("join");
+  }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
+
 
   function notify(text: string, type: "success" | "error" = "success") {
     setMessage(text);

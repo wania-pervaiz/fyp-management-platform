@@ -146,7 +146,6 @@ export default function Home() {
           }
         }
 
-
         .fyp-ring {
           animation: fypRing 3.2s ease-in-out infinite;
         }
