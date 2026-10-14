@@ -105,6 +105,7 @@ Other limitations include:
 - Clearing browser site data may remove saved information.
 - The current login interfaces should not be treated as a complete production authentication system.
 - Invitations may be simulated and may not send actual emails.
+- AI features depend on the availability of the external AI service. If the service is temporarily unavailable, users can still add tasks and milestones manually.
 
 Future improvements could include secure authentication, shared database storage, real email notifications, and additional error handling.
 
