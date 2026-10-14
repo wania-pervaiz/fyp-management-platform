@@ -146,14 +146,6 @@ export default function Home() {
           }
         }
 
-        @keyframes fypFloat {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-5px);
-          }
-        }
 
         .fyp-ring {
           animation: fypRing 3.2s ease-in-out infinite;
@@ -162,23 +154,18 @@ export default function Home() {
         .fyp-bar {
           transform-origin: left center;
           animation: fypBar 2.8s ease-in-out infinite;
-        }
-
-        .fyp-float {
-          animation: fypFloat 4s ease-in-out infinite;
-        }
+    
 
         @media (prefers-reduced-motion: reduce) {
           .fyp-ring,
-          .fyp-bar,
-          .fyp-float {
+          .fyp-bar{
             animation: none;
           }
         }
       `}</style>
 
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-[#0C2430]/95 text-[#F8F7F3] backdrop-blur">
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-[#0C2430] text-[#F8F7F3]">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Link
             href="/"
@@ -222,7 +209,13 @@ export default function Home() {
           aria-hidden
           className="pointer-events-none absolute inset-0 -z-10"
         >
-          <div className="absolute -right-32 -top-32 h-[28rem] w-[28rem] rounded-full bg-[#7FD6CC]/15 blur-[110px]" />
+          <div
+  className="absolute -right-32 -top-32 h-[28rem] w-[28rem] rounded-full"
+  style={{
+    background:
+      "radial-gradient(circle, rgba(127,214,204,0.22) 0%, rgba(127,214,204,0) 70%)",
+  }}
+/>
         </div>
 
         <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 pb-14 pt-16 sm:pt-24 lg:grid-cols-[1.05fr_0.95fr]">
@@ -273,7 +266,7 @@ export default function Home() {
           {/* Dashboard preview */}
           <div className="relative mx-auto w-full max-w-lg">
             <div
-              className="fyp-float relative overflow-hidden rounded-[2rem] border border-white/15 bg-[#0C2430] p-5 shadow-2xl backdrop-blur-md text-left text-white"
+              className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-[#0C2430] p-5 shadow-xl text-left text-white"
               aria-hidden="true"
             >
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
