@@ -6,13 +6,14 @@ export default defineConfig({
   plugins: [react()],
   resolve: { alias: { "@": path.resolve(__dirname, ".") } },
   test: {
-    environment: "jsdom",
+  include: ["tests/**/*.test.{ts,tsx}", "tests/**/*.spec.{ts,tsx}"],
+  environment: "jsdom",
     setupFiles: ["./tests/setup.ts"],
     globals: true,
     coverage: {
       provider: "v8",
-      include: ["lib/**", "components/**"],
-      exclude: ["components/AIChat.tsx"],
+      include: ["components/**"],
+exclude: ["components/AIChat.tsx"],
     },
   },
 });

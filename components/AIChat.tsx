@@ -3,6 +3,8 @@
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { useEffect, useMemo, useRef, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export type ChatRole = "student" | "supervisor";
 
@@ -138,15 +140,29 @@ export default function AIChat({ role = "student" }: { role?: ChatRole }) {
 
                     {message.parts.map((part, index) => {
                       if (part.type === "text") {
-                        return (
-                          <p
-                            key={index}
-                            className="whitespace-pre-wrap text-sm leading-6"
-                          >
-                            {part.text}
-                          </p>
-                        );
-                      }
+  return (
+    <div
+      key={index}
+      className="prose prose-invert prose-sm max-w-none
+        break-words
+        [&_h1]:mb-3 [&_h1]:mt-4 [&_h1]:text-xl [&_h1]:font-bold
+        [&_h2]:mb-2 [&_h2]:mt-4 [&_h2]:text-lg [&_h2]:font-bold
+        [&_h3]:mb-2 [&_h3]:mt-3 [&_h3]:font-semibold
+        [&_p]:my-2 [&_p]:leading-6
+        [&_ul]:my-2 [&_ul]:list-disc [&_ul]:pl-5
+        [&_ol]:my-2 [&_ol]:list-decimal [&_ol]:pl-5
+        [&_li]:my-1
+        [&_table]:my-3 [&_table]:w-full [&_table]:border-collapse
+        [&_th]:border [&_th]:border-[#176B73] [&_th]:p-2 [&_th]:text-left
+        [&_td]:border [&_td]:border-[#176B73] [&_td]:p-2
+        [&_hr]:my-4 [&_hr]:border-[#176B73]/50"
+    >
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+        {part.text}
+      </ReactMarkdown>
+    </div>
+  );
+}
                       return null;
                     })}
                   </div>
